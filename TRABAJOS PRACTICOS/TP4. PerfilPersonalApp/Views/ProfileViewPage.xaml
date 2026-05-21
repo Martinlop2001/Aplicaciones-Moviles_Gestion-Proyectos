@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PerfilPersonalApp.Views.ProfileViewPage"
+             Title="Mi Perfil">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20">
+
+            <!-- Card Principal -->
+            <Frame
+                BackgroundColor="White"
+                BorderColor="#BDC3C7"
+                CornerRadius="15"
+                Padding="20"
+                HasShadow="True">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <!-- Avatar -->
+                    <Frame
+                        BackgroundColor="#3498DB"
+                        CornerRadius="50"
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        HorizontalOptions="Center"
+                        Padding="0"
+                        HasShadow="False">
+
+                        <Label
+                            x:Name="InitialsLabel"
+                            FontSize="40"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                    <!-- Nombre -->
+                    <Label
+                        x:Name="NameLabel"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="#2C3E50"
+                        HorizontalOptions="Center" />
+
+                    <!-- Edad -->
+                    <Label
+                        x:Name="AgeLabel"
+                        FontSize="16"
+                        TextColor="#7F8C8D"
+                        HorizontalOptions="Center" />
+
+                    <!-- Separador -->
+                    <BoxView
+                        HeightRequest="1"
+                        BackgroundColor="#ECF0F1"
+                        Margin="0,10,0,10" />
+
+                    <!-- Información de Contacto -->
+                    <Grid ColumnDefinitions="Auto,*"
+                          RowDefinitions="Auto,Auto,Auto" RowSpacing="10">
+
+                        <!-- Email -->
+                        <Label Grid.Row="0" Grid.Column="0" Text="&#x2709;" FontSize="20" />
+                        <Label Grid.Row="0" Grid.Column="1"
+                               x:Name="EmailLabel" FontSize="14" VerticalOptions="Center"
+                               Margin="10,0,0,0" />
+
+                        <!-- Teléfono -->
+                        <Label Grid.Row="1" Grid.Column="0" Text="&#x260E;" FontSize="20" />
+                        <Label Grid.Row="1" Grid.Column="1"
+                               x:Name="PhoneLabel" FontSize="14" VerticalOptions="Center"
+                               Margin="10,0,0,0" />
+
+                        <!-- País -->
+                        <Label Grid.Row="2" Grid.Column="0" Text="&#x1F30D;" FontSize="20" />
+                        <Label Grid.Row="2" Grid.Column="1"
+                               x:Name="CountryLabel" FontSize="14" VerticalOptions="Center"
+                               Margin="10,0,0,0" />
+                    </Grid>
+
+                    <!-- Separador -->
+                    <BoxView
+                        HeightRequest="1"
+                        BackgroundColor="#ECF0F1"
+                        Margin="0,10,0,10" />
+
+                    <!-- Biografía -->
+                    <Label Text="Sobre mí" FontSize="16" FontAttributes="Bold" TextColor="#34495E" />
+                    <Label
+                        x:Name="BioLabel"
+                        FontSize="14"
+                        TextColor="#7F8C8D"
+                        LineBreakMode="WordWrap" />
+
+                    <!-- Género -->
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="Género:" FontSize="14" FontAttributes="Bold" TextColor="#34495E" />
+                        <Label x:Name="GenderLabel" FontSize="14" TextColor="#7F8C8D" />
+                    </HorizontalStackLayout>
+
+                    <!-- Notificaciones -->
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="Notificaciones:" FontSize="14" FontAttributes="Bold" TextColor="#34495E" />
+                        <Label x:Name="NotificationsLabel" FontSize="14" TextColor="#7F8C8D" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botón Volver -->
+            <Button
+                Text="Volver al Inicio"
+                FontSize="16"
+                BackgroundColor="#95A5A6"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="45"
+                Clicked="OnBackToHomeClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TiendaApp.Views.DetallePage"
+             Title="Detalle">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Image Source="{Binding Producto.Imagen}"
+                   Aspect="AspectFill"
+                   HeightRequest="200"/>
+
+            <Label Text="{Binding Producto.Nombre}"
+                   FontSize="24"
+                   FontAttributes="Bold"/>
+
+            <Label Text="{Binding Producto.Precio, StringFormat='${0:F2}'}"
+                   FontSize="20"
+                   TextColor="Green"/>
+
+            <BoxView HeightRequest="1" Color="LightGray"/>
+
+            <Label Text="{Binding Producto.Descripcion}"
+                   FontSize="16"/>
+
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0">
+                    <Label Text="Categoría"
+                           FontSize="12"
+                           TextColor="Gray"/>
+                    <Label Text="{Binding Producto.Categoria}"
+                           FontSize="16"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label Text="Stock"
+                           FontSize="12"
+                           TextColor="Gray"/>
+                    <Label Text="{Binding Producto.Stock}"
+                           FontSize="16"/>
+                </StackLayout>
+            </Grid>
+
+            <BoxView HeightRequest="1" Color="LightGray"/>
+
+            <Label Text="{Binding Producto.Calificacion, StringFormat='Calificación: {0:F1}'}"
+                   FontSize="16"/>
+
+            <Button Text="Eliminar Producto"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Command="{Binding EliminarCommand}"/>
+
+            <Button Text="Volver"
+                    Command="{Binding VolverCommand}"/>
+
+            <ActivityIndicator IsRunning="{Binding EstaCargando}"
+                               IsVisible="{Binding EstaCargando}"
+                               Color="Blue"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

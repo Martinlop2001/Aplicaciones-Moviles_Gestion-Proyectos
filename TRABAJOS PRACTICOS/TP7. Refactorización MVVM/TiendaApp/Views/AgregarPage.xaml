@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TiendaApp.Views.AgregarPage"
+             Title="Nuevo Producto">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Nombre" FontSize="14" TextColor="Gray"/>
+            <Entry Text="{Binding Nombre}"
+                   Placeholder="Nombre del producto"/>
+
+            <Label Text="Precio" FontSize="14" TextColor="Gray"/>
+            <Entry Text="{Binding Precio}"
+                   Placeholder="0.00"
+                   Keyboard="Numeric"/>
+
+            <Label Text="Descripción" FontSize="14" TextColor="Gray"/>
+            <Editor Text="{Binding Descripcion}"
+                    Placeholder="Descripción del producto"
+                    HeightRequest="100"/>
+
+            <Label Text="Categoría" FontSize="14" TextColor="Gray"/>
+            <Entry Text="{Binding Categoria}"
+                   Placeholder="Categoría"/>
+
+            <Label Text="Stock" FontSize="14" TextColor="Gray"/>
+            <Entry Text="{Binding Stock}"
+                   Placeholder="0"
+                   Keyboard="Numeric"/>
+
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="Red"
+                   IsVisible="{Binding TieneError}"/>
+
+            <Button Text="Guardar"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    Command="{Binding GuardarCommand}"/>
+
+            <Button Text="Cancelar"
+                    Command="{Binding CancelarCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

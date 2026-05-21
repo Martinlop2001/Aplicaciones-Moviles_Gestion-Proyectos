@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="PerfilPersonalApp.Views.ProfileFormPage"
+             Title="Crear Perfil">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="15">
+
+            <!-- Encabezado -->
+            <Label
+                Text="Completa tu Perfil"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="#2C3E50"
+                Margin="0,10,0,20" />
+
+            <!-- Nombre Completo -->
+            <Label Text="Nombre Completo" FontSize="14" TextColor="#34495E" />
+            <Entry
+                x:Name="NameEntry"
+                Placeholder="Ingresa tu nombre completo"
+                FontSize="16" />
+
+            <!-- Email -->
+            <Label Text="Email" FontSize="14" TextColor="#34495E" />
+            <Entry
+                x:Name="EmailEntry"
+                Placeholder="ejemplo@correo.com"
+                Keyboard="Email"
+                FontSize="16" />
+
+            <!-- Teléfono -->
+            <Label Text="Teléfono" FontSize="14" TextColor="#34495E" />
+            <Entry
+                x:Name="PhoneEntry"
+                Placeholder="+54 9 11 1234-5678"
+                Keyboard="Telephone"
+                FontSize="16" />
+
+            <!-- Fecha de Nacimiento -->
+            <Label Text="Fecha de Nacimiento" FontSize="14" TextColor="#34495E" />
+            <DatePicker
+                x:Name="BirthDatePicker"
+                Format="dd/MM/yyyy"
+                MaximumDate="{x:Static sys:DateTime.Now}"
+                FontSize="16" />
+
+            <!-- País -->
+            <Label Text="País" FontSize="14" TextColor="#34495E" />
+            <Picker
+                x:Name="CountryPicker"
+                Title="Selecciona tu país"
+                FontSize="16">
+                <Picker.Items>
+                    <x:String>Argentina</x:String>
+                    <x:String>Brasil</x:String>
+                    <x:String>Chile</x:String>
+                    <x:String>Colombia</x:String>
+                    <x:String>México</x:String>
+                    <x:String>Perú</x:String>
+                    <x:String>Uruguay</x:String>
+                    <x:String>Otro</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Género -->
+            <Label Text="Género" FontSize="14" TextColor="#34495E" />
+            <Picker
+                x:Name="GenderPicker"
+                Title="Selecciona tu género"
+                FontSize="16">
+                <Picker.Items>
+                    <x:String>Masculino</x:String>
+                    <x:String>Femenino</x:String>
+                    <x:String>Otro</x:String>
+                    <x:String>Prefiero no decir</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Biografía -->
+            <Label Text="Biografía" FontSize="14" TextColor="#34495E" />
+            <Editor
+                x:Name="BioEditor"
+                Placeholder="Cuéntanos sobre ti..."
+                HeightRequest="100"
+                FontSize="16" />
+
+            <!-- Notificaciones -->
+            <HorizontalStackLayout Spacing="10" Margin="0,10,0,0">
+                <Switch x:Name="NotificationsSwitch" />
+                <Label
+                    Text="Acepto recibir notificaciones"
+                    FontSize="14"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <!-- Botón Guardar -->
+            <Button
+                Text="Guardar Perfil"
+                FontSize="18"
+                BackgroundColor="#27AE60"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                Clicked="OnSaveClicked"
+                Margin="0,20,0,20" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

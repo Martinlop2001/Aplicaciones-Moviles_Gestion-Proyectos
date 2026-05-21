@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatalogoProductos.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout x:Name="contenidoLogin"
+                     Padding="{OnIdiom Phone=30, Tablet=50, Desktop=100}"
+                     Spacing="20"
+                     VerticalOptions="Center"
+                     Opacity="0"
+                     TranslationX="-50">
+            <Image Source="logo.png"
+                   WidthRequest="{OnIdiom Phone=120, Tablet=150, Desktop=180}"
+                   HeightRequest="{OnIdiom Phone=120, Tablet=150, Desktop=180}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,30" />
+
+            <Label Text="Bienvenido"
+                   Style="{StaticResource H1}"
+                   HorizontalOptions="Center" />
+            <Label Text="Inicia sesión para continuar"
+                   Style="{StaticResource Caption}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,30" />
+
+            <Label Text="Email" Style="{StaticResource Body}" />
+            <Entry x:Name="entryEmail"
+                   Placeholder="tu@email.com"
+                   Keyboard="Email"
+                   Style="{StaticResource Input}" />
+
+            <Label Text="Contraseña" Style="{StaticResource Body}" />
+            <Entry x:Name="entryPassword"
+                   Placeholder="••••••••"
+                   IsPassword="True"
+                   Style="{StaticResource Input}" />
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <CheckBox x:Name="checkRecordar" Color="{StaticResource Primario}" />
+                <Label Text="Recordarme"
+                       Style="{StaticResource Body}"
+                       VerticalOptions="Center" />
+            </StackLayout>
+
+            <Button Text="Iniciar Sesión"
+                    Style="{StaticResource BtnPrimario}"
+                    Clicked="OnLoginClicked"
+                    Margin="0,20,0,0" />
+            <Button Text="Crear cuenta"
+                    Style="{StaticResource BtnSecundario}"
+                    Clicked="OnRegistroClicked" />
+
+            <Label Text="¿Olvidaste tu contraseña?"
+                   Style="{StaticResource Caption}"
+                   TextColor="{StaticResource Primario}"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnOlvidePasswordTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

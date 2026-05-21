@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatalogoProductos.Views.SplashPage"
+             BackgroundColor="{StaticResource Primario}"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <StackLayout x:Name="contenidoSplash"
+                     VerticalOptions="Center"
+                     Spacing="20"
+                     Opacity="0">
+            <Image Source="logo.png"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   HorizontalOptions="Center" />
+            <Label Text="Catálogo Productos"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center" />
+            <ActivityIndicator IsRunning="True"
+                               Color="White"
+                               HorizontalOptions="Center" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

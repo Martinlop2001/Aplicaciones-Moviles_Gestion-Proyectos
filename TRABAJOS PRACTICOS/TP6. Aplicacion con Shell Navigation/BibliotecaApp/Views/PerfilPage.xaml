@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BibliotecaApp.ViewModels"
+             x:Class="BibliotecaApp.Views.PerfilPage"
+             Title="Perfil">
+    <ContentPage.BindingContext>
+        <vm:PerfilViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+            <Frame Padding="30" CornerRadius="15" BackgroundColor="#6200EE" HorizontalOptions="Center">
+                <StackLayout Spacing="10" HorizontalOptions="Center">
+                    <Image Source="profile.png"
+                           WidthRequest="100"
+                           HeightRequest="100"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding NombreUsuario}"
+                           TextColor="White"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding Email}"
+                           TextColor="White"
+                           FontSize="16"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="15" CornerRadius="10">
+                <StackLayout Spacing="10">
+                    <Label Text="Estadísticas"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <Grid ColumnSpacing="15" RowSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame Grid.Column="0" Padding="10" BackgroundColor="#F0F0F0" CornerRadius="10">
+                            <StackLayout>
+                                <Label Text="{Binding TotalLibrosLeidos}"
+                                       FontSize="28"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Libros Leídos"
+                                       FontSize="14"
+                                       TextColor="Gray"
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Column="1" Padding="10" BackgroundColor="#F0F0F0" CornerRadius="10">
+                            <StackLayout>
+                                <Label Text="{Binding LibrosFavoritos}"
+                                       FontSize="28"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"/>
+                                <Label Text="Favoritos"
+                                       FontSize="14"
+                                       TextColor="Gray"
+                                       HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

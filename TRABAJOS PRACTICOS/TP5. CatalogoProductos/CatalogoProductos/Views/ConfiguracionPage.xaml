@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatalogoProductos.Views.ConfiguracionPage"
+             Title="Configuración">
+
+    <ScrollView>
+        <StackLayout x:Name="contenidoConfig" Spacing="20" Opacity="0">
+            <Label Text="Configuración" Style="{StaticResource H1}" Margin="20,20,20,0" />
+
+            <!-- Apariencia -->
+            <Frame Style="{StaticResource Card}" Margin="20,0">
+                <StackLayout Spacing="15">
+                    <Label Text="Apariencia" Style="{StaticResource H3}" />
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Tema oscuro" Style="{StaticResource Body}" VerticalOptions="Center" />
+                        <Switch x:Name="switchTema"
+                                Grid.Column="1"
+                                OnColor="{StaticResource Primario}"
+                                Toggled="OnTemaToggled" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <!-- Notificaciones -->
+            <Frame Style="{StaticResource Card}" Margin="20,0">
+                <StackLayout Spacing="15">
+                    <Label Text="Notificaciones" Style="{StaticResource H3}" />
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Notificaciones push" Style="{StaticResource Body}" VerticalOptions="Center" />
+                        <Switch x:Name="switchNotif"
+                                Grid.Column="1"
+                                OnColor="{StaticResource Primario}"
+                                IsToggled="True" />
+                    </Grid>
+                    <Grid ColumnSpacing="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Ofertas y promociones" Style="{StaticResource Body}" VerticalOptions="Center" />
+                        <Switch x:Name="switchOfertas"
+                                Grid.Column="1"
+                                OnColor="{StaticResource Primario}"
+                                IsToggled="True" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <!-- Cuenta -->
+            <Frame Style="{StaticResource Card}" Margin="20,0">
+                <StackLayout Spacing="15">
+                    <Label Text="Cuenta" Style="{StaticResource H3}" />
+                    <StackLayout Spacing="10">
+                        <Label Text="Versión de la app: 1.0.0" Style="{StaticResource Caption}" />
+                        <Label Text="Idioma: Español" Style="{StaticResource Caption}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!-- Acerca de -->
+            <Frame Style="{StaticResource Card}" Margin="20,0">
+                <StackLayout Spacing="10">
+                    <Label Text="Acerca de" Style="{StaticResource H3}" />
+                    <Label Text="Catálogo Productos - TP5" Style="{StaticResource Body}" />
+                    <Label Text="Aplicación completa con estilos" Style="{StaticResource Caption}" />
+                </StackLayout>
+            </Frame>
+
+            <Label Text="© 2026 Catálogo Productos" Style="{StaticResource Caption}" HorizontalOptions="Center" Margin="0,10,0,20" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

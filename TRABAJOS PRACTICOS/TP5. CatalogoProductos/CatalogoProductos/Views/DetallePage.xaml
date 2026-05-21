@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatalogoProductos.Views.DetallePage"
+             Title="Detalle">
+
+    <ScrollView>
+        <StackLayout x:Name="contenidoDetalle" Spacing="0" Opacity="0">
+            <!-- Imagen del producto -->
+            <Image x:Name="imgProducto"
+                   Aspect="AspectFill"
+                   HeightRequest="{OnIdiom Phone=300, Tablet=400, Desktop=500}" />
+
+            <!-- Información del producto -->
+            <StackLayout Padding="{OnIdiom Phone=20, Tablet=30, Desktop=40}" Spacing="15">
+                <!-- Nombre y precio -->
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblNombre" Style="{StaticResource H1}" Grid.Column="0" />
+                    <ImageButton Grid.Column="1"
+                                 x:Name="btnFavorito"
+                                 WidthRequest="40"
+                                 HeightRequest="40"
+                                 Clicked="OnToggleFavoritoClicked"
+                                 VerticalOptions="Center" />
+                </Grid>
+
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblPrecio"
+                           Grid.Column="0"
+                           FontSize="32"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Exito}" />
+                    <StackLayout Grid.Column="1"
+                                 Orientation="Horizontal"
+                                 Spacing="10"
+                                 VerticalOptions="Center">
+                        <Label Text="⭐" FontSize="20" />
+                        <Label x:Name="lblCalificacion"
+                               FontSize="18"
+                               FontAttributes="Bold" />
+                    </StackLayout>
+                </Grid>
+
+                <!-- Categoría y stock -->
+                <FlexLayout Direction="Row" Wrap="Wrap" JustifyContent="Start">
+                    <Frame Padding="10,5" Margin="0,0,10,0" CornerRadius="8" HasShadow="False"
+                           BackgroundColor="{StaticResource Primario}">
+                        <Label x:Name="lblCategoria" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                    </Frame>
+                    <Frame Padding="10,5" CornerRadius="8" HasShadow="False"
+                           BackgroundColor="{StaticResource Exito}">
+                        <Label x:Name="lblStock" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                    </Frame>
+                    <Frame Padding="10,5" Margin="10,0,0,0" CornerRadius="8" HasShadow="False"
+                           BackgroundColor="{StaticResource Advertencia}">
+                        <Label x:Name="lblFavorito" Text="❤ Favorito" TextColor="White" FontSize="12" FontAttributes="Bold" IsVisible="False" />
+                    </Frame>
+                </FlexLayout>
+
+                <!-- Descripción -->
+                <Label Text="Descripción" Style="{StaticResource H2}" Margin="0,20,0,10" />
+                <Label x:Name="lblDescripcion" Style="{StaticResource Body}" />
+
+                <!-- Características -->
+                <Label Text="Características" Style="{StaticResource H2}" Margin="0,20,0,10" />
+                <Frame Style="{StaticResource Card}">
+                    <StackLayout Spacing="10">
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="✅" FontSize="20" />
+                            <Label Grid.Column="1" Text="Garantía de 1 año" Style="{StaticResource Body}" />
+                        </Grid>
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="✅" FontSize="20" />
+                            <Label Grid.Column="1" Text="Envío gratis" Style="{StaticResource Body}" />
+                        </Grid>
+                        <Grid ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="✅" FontSize="20" />
+                            <Label Grid.Column="1" Text="Devolución en 30 días" Style="{StaticResource Body}" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Cantidad -->
+                <Label Text="Cantidad:" Style="{StaticResource H3}" />
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Button Text="-" WidthRequest="50" HeightRequest="50"
+                            BackgroundColor="{StaticResource Primario}" TextColor="White"
+                            FontSize="24" FontAttributes="Bold" CornerRadius="25"
+                            Clicked="OnDisminuirCantidad" />
+                    <Label x:Name="lblCantidad" Text="1"
+                           FontSize="24" FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           WidthRequest="50" HorizontalTextAlignment="Center" />
+                    <Button Text="+" WidthRequest="50" HeightRequest="50"
+                            BackgroundColor="{StaticResource Primario}" TextColor="White"
+                            FontSize="24" FontAttributes="Bold" CornerRadius="25"
+                            Clicked="OnAumentarCantidad" />
+                </StackLayout>
+
+                <!-- Botones de acción -->
+                <Grid ColumnSpacing="10" Margin="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+                            Text="🛒 Agregar al Carrito"
+                            Style="{StaticResource BtnPrimario}"
+                            Clicked="OnAgregarCarritoClicked" />
+                    <Button Grid.Column="1"
+                            Text="Comprar Ahora"
+                            Style="{StaticResource BtnSecundario}"
+                            Clicked="OnComprarClicked" />
+                </Grid>
+
+                <!-- Botón ir al carrito -->
+                <Button Text="🛒 Ver Carrito"
+                        Style="{StaticResource BtnSecundario}"
+                        TextColor="{StaticResource Exito}"
+                        BorderColor="{StaticResource Exito}"
+                        Clicked="OnVerCarritoClicked" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

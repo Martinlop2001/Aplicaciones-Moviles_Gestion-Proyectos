@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:BibliotecaApp.Views"
+       x:Class="BibliotecaApp.AppShell"
+       FlyoutBackgroundColor="White">
+
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor" Value="White"/>
+            <Setter Property="Shell.TabBarForegroundColor" Value="#6200EE"/>
+            <Setter Property="Shell.TabBarTitleColor" Value="#6200EE"/>
+            <Setter Property="Shell.TabBarUnselectedColor" Value="Gray"/>
+        </Style>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <Grid BackgroundColor="#6200EE" HeightRequest="180" Padding="20">
+            <StackLayout VerticalOptions="Center" Spacing="10">
+                <Image Source="logo.png"
+                       WidthRequest="80"
+                       HeightRequest="80"
+                       HorizontalOptions="Center"/>
+                <Label Text="Mi Biblioteca"
+                       TextColor="White"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <TabBar>
+        <ShellContent Title="Inicio"
+                      Icon="home.png"
+                      ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Title="Libros"
+                      Icon="books.png"
+                      ContentTemplate="{DataTemplate views:LibrosPage}"/>
+        <ShellContent Title="Favoritos"
+                      Icon="heart.png"
+                      ContentTemplate="{DataTemplate views:FavoritosPage}"/>
+        <ShellContent Title="Perfil"
+                      Icon="profile.png"
+                      ContentTemplate="{DataTemplate views:PerfilPage}"/>
+    </TabBar>
+
+    <FlyoutItem Title="Configuración" Icon="settings.png">
+        <ShellContent ContentTemplate="{DataTemplate views:ConfigPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Acerca de" Icon="info.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AcercaDePage}"/>
+    </FlyoutItem>
+
+</Shell>

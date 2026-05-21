@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BibliotecaApp.Views.AcercaDePage"
+             Title="Acerca de">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+            <Image Source="logo.png"
+                   WidthRequest="120"
+                   HeightRequest="120"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Mi Biblioteca"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Versión 1.0"
+                   FontSize="18"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+
+            <Frame Padding="20" CornerRadius="10" Margin="0,20">
+                <StackLayout Spacing="10">
+                    <Label Text="Aplicación de Biblioteca Personal"
+                           FontSize="16"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Desarrollada con .NET MAUI"
+                           FontSize="16"
+                           HorizontalOptions="Center"/>
+                    <Label Text="TP6 - Aplicación con Shell Navigation"
+                           FontSize="14"
+                           TextColor="Gray"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="© 2026 Martín López"
+                   FontSize="14"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

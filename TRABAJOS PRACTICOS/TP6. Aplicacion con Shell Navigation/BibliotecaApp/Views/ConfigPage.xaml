@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BibliotecaApp.Views.ConfigPage"
+             Title="Configuración">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+            <Label Text="Configuración"
+                   FontSize="28"
+                   FontAttributes="Bold"/>
+
+            <Frame Padding="15" CornerRadius="10">
+                <StackLayout Spacing="15">
+                    <Label Text="Apariencia"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label Text="Tema oscuro" FontSize="16" VerticalOptions="Center"/>
+                        <Switch IsToggled="false" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label Text="Notificaciones" FontSize="16" VerticalOptions="Center"/>
+                        <Switch IsToggled="true" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Padding="15" CornerRadius="10">
+                <StackLayout Spacing="15">
+                    <Label Text="Cuenta"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+                    <Label Text="Usuario: Martín López" FontSize="16"/>
+                    <Label Text="Email: martin@email.com" FontSize="16"/>
+                    <Label Text="Versión: 1.0.0" FontSize="16" TextColor="Gray"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

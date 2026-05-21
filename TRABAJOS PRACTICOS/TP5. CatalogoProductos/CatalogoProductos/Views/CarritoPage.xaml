@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatalogoProductos.Views.CarritoPage"
+             Title="Carrito de Compras">
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <CollectionView x:Name="collectionViewCarrito"
+                        Grid.Row="0"
+                        Margin="15,10">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Style="{StaticResource Card}" Padding="15">
+                        <Grid ColumnSpacing="15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding Producto.Imagen}"
+                                   Aspect="AspectFill"
+                                   WidthRequest="80"
+                                   HeightRequest="80" />
+                            <StackLayout Grid.Column="1" Spacing="5" VerticalOptions="Center">
+                                <Label Text="{Binding Producto.Nombre}"
+                                       Style="{StaticResource Body}"
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding Producto.Precio, StringFormat='${0:F2} c/u'}"
+                                       Style="{StaticResource Caption}" />
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Button Text="-" WidthRequest="35" HeightRequest="35"
+                                            BackgroundColor="{StaticResource Primario}" TextColor="White"
+                                            CornerRadius="17" FontSize="16" FontAttributes="Bold"
+                                            Clicked="OnDisminuirCantidad"
+                                            CommandParameter="{Binding Producto.Id}" />
+                                    <Label Text="{Binding Cantidad}"
+                                           FontSize="18" FontAttributes="Bold"
+                                           VerticalOptions="Center"
+                                           WidthRequest="30" HorizontalTextAlignment="Center" />
+                                    <Button Text="+" WidthRequest="35" HeightRequest="35"
+                                            BackgroundColor="{StaticResource Primario}" TextColor="White"
+                                            CornerRadius="17" FontSize="16" FontAttributes="Bold"
+                                            Clicked="OnAumentarCantidad"
+                                            CommandParameter="{Binding Producto.Id}" />
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Grid.Column="2" VerticalOptions="Center" Spacing="5">
+                                <Label Text="{Binding Subtotal, StringFormat='${0:F2}'}"
+                                       FontSize="18" FontAttributes="Bold"
+                                       TextColor="{StaticResource Exito}" />
+                                <Button Text="🗑" WidthRequest="40" HeightRequest="40"
+                                        BackgroundColor="Transparent" FontSize="20"
+                                        Clicked="OnEliminarItem"
+                                        CommandParameter="{Binding Producto.Id}" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <StackLayout VerticalOptions="Center" Padding="50">
+                    <Label Text="🛒" FontSize="64" HorizontalOptions="Center" />
+                    <Label Text="Tu carrito está vacío"
+                           Style="{StaticResource H2}" HorizontalOptions="Center" />
+                    <Label Text="Agrega productos desde el detalle"
+                           Style="{StaticResource Caption}" HorizontalOptions="Center" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <!-- Footer -->
+        <Frame Grid.Row="1" Style="{StaticResource Card}" Margin="15" Padding="15">
+            <StackLayout Spacing="10">
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Total:" Style="{StaticResource H2}" />
+                    <Label x:Name="lblTotal" Grid.Column="1"
+                           Text="$0.00" Style="{StaticResource H1}"
+                           TextColor="{StaticResource Exito}" />
+                </Grid>
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="Vaciar Carrito"
+                            Style="{StaticResource BtnSecundario}"
+                            TextColor="{StaticResource Error}"
+                            BorderColor="{StaticResource Error}"
+                            Clicked="OnVaciarCarritoClicked" />
+                    <Button Grid.Column="1" Text="Comprar Ahora"
+                            Style="{StaticResource BtnPrimario}"
+                            Clicked="OnComprarClicked" />
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
